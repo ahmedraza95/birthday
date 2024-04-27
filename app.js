@@ -1,104 +1,150 @@
-
-let date1 = "d";
-
-
-// inputForm.addEventListener("submit", (event) => {
-
-//         let final = document.querySelector("#daycount")
-        
-//         const firstDate = document.getElementById('firstDate').value;
-//         const secondDate = document.getElementById('secondDate').value;
-        
-        
-//         const startTimestamp = new Date(firstDate).getTime();
-//         const endTimestamp = new Date(secondDate).getTime();
-        
-        
-//         const difference = endTimestamp - startTimestamp;
-        
-        
-//         const differenceInDays = Math.round(difference / (1000 * 60 * 60 * 24));
-        
-        
-//         const dayCountElement = document.getElementById('dayCount');
-//         final.innerHTML = `The difference between the dates is ${differenceInDays} days.`;
-//     } );
-
-
-// // inputForm.addEventListener("submit", (event) => {
-// //   event.preventDefault();
-//         const firstDate = document.getElementById('firstDate').value;
-//         const secondDate = document.getElementById('secondDate').value;
-        
-        
-//         const startTimestamp = new Date(2/23/2024).getTime();
-//         console.log(startTimestamp);
-
-//         const endTimestamp = new Date(secondDate).getTime();
-        
-        
-//         const difference = endTimestamp - startTimestamp;
-        
-        
-//         const differenceInDays = Math.round(difference / (1000 * 60 * 60 * 24));
-
-//         console.log(differenceInDays);
-// // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let userName = prompt("Enter Your Full Name!");
+let nameTop = document.querySelector(".name");
+nameTop.innerHTML = "";
+nameTop.innerHTML = `Hello, ${userName.toUpperCase()} 👋👋🎉`;
 inputForm.addEventListener("submit", (event) => {
     event.preventDefault();
     setInterval(() => {
-    const secondDate = document.getElementById('secondDate').value;
+    let secondDate = document.getElementById('secondDate').value;
     const startTimestamp = new Date().getTime();
-    const endTimestamp = new Date(secondDate).getTime();
-    const difference = endTimestamp - startTimestamp; 
-    let secondPrint = document.querySelector("#dayCount");
-    secondPrint.innerHTML = "";
+    let getFullYear = new Date(secondDate).getFullYear();
+    let getFullMonth = new Date(secondDate).getMonth() + 1;
+    let getFullDate = new Date(secondDate).getDate();
+    let getMonth = new Date(secondDate).getTime();
+    let yearsToday = new Date().getFullYear();
 
-
-
-    const differenceInDays = Math.round(difference / (1000 * 60 * 60 * 24));
-            
-
-        let hors = Math.floor(difference / (1000 * 60 * 60));
-        hors = hors - 5; 
-        // // console.log(hors);
+    let userYear = new Date().getFullYear() - getFullYear;
+    let yearnow = userYear + getFullYear;
+    let userMonth = getFullMonth ;
+    let userDate = getFullDate ;
     
-        let minutes = Math.floor((difference % (1000 *60 * 60)) / (1000 * 60));
-        // // console.log(minutes);
+    let finals = "";
+    let monthToday = new Date().getMonth() + 1;
+    let monthDate = new Date().getDate();
 
-        let seconds = Math.floor((difference % (1000 * 60)) / 1000);
-        secondPrint.innerHTML = `${differenceInDays}  ${hors} : ${minutes} : ${seconds}`;
+    let Age = document.querySelector("#Age");
+
+
+    if (userMonth < monthToday){
+        Age.innerHTML =  `You Are ${userYear} Years old `;
+
+    }   else if (userMonth === monthToday && getFullDate < monthDate ){
+        Age.innerHTML = `You Are ${userYear} Years old `;
+
+    }
+    else {
+        Age.innerHTML = `You Are ${userYear - 1} Years old `;
+    }
+
+
+
+    if (getFullMonth < monthToday) {
+         finals = `${userMonth}/${userDate}/${yearsToday + 1  }`;
+         let converter = new Date(finals).getTime();
+        let sum =converter -startTimestamp  ;
+
+        let secondPrint = document.querySelector("#dayCount");
+        secondPrint.innerHTML = "";
+
+        sum = Math.abs(sum);
+        let differenceInDays = Math.round(sum / (1000 * 60 * 60 * 24));
+        differenceInDays = differenceInDays;
+
+        let hors = Math.floor(sum / (1000 * 60 * 60));
+        let minutes = Math.floor((sum % (1000 *60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((sum % (1000 * 60)) / 1000);
+        secondPrint.innerHTML = `Days = ${differenceInDays}</br> Hours = ${hors} </br> Minutes = ${minutes} </br> Seconds = ${seconds}s  Left`;
+    
+        }   else if (getFullMonth === monthToday && monthDate > getFullDate) {
+        finals = `${userMonth}/${userDate}/${yearsToday + 1}`;
+        let converter = new Date(finals).getTime();
+        let sum =converter -startTimestamp  ;
+
+        let secondPrint = document.querySelector("#dayCount");
+        secondPrint.innerHTML = "";
+
+        sum = Math.abs(sum);
+        let differenceInDays = Math.round(sum / (1000 * 60 * 60 * 24));
+        differenceInDays = differenceInDays;
+
+        let hors = Math.floor(sum / (1000 * 60 * 60));
+        let minutes = Math.floor((sum % (1000 *60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((sum % (1000 * 60)) / 1000);
+        secondPrint.innerHTML = `Days = ${differenceInDays}</br> Hours = ${hors} </br> Minutes = ${minutes} </br> Seconds = ${seconds}s  Left`;
+    
+    }  else if (getFullDate === monthDate) {
+        let secondPrint = document.querySelector("#dayCount");
+        secondPrint.innerHTML = `hello`;
+
+    
+    }
+
+     else {
+        finals = `${userMonth}/${userDate}/${yearsToday}`;
+        let converter = new Date(finals).getTime();
+        let sum =converter -startTimestamp  ;
+
+        let secondPrint = document.querySelector("#dayCount");
+        secondPrint.innerHTML = "";
+
+        sum = Math.abs(sum);
+        let differenceInDays = Math.round(sum / (1000 * 60 * 60 * 24));
+        differenceInDays = differenceInDays;
+
+        let hors = Math.floor(sum / (1000 * 60 * 60));
+        let minutes = Math.floor((sum % (1000 *60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((sum % (1000 * 60)) / 1000);
+        secondPrint.innerHTML = `Days = ${differenceInDays}</br> Hours = ${hors} </br> Minutes = ${minutes} </br> Seconds = ${seconds}s  Left`;
+    }
+
+    // let converter = new Date(finals).getTime();
+    // let sum =converter -startTimestamp  ;
+    // console.log(sum);
+
+    // let secondPrint = document.querySelector("#dayCount");
+    // secondPrint.innerHTML = "";
+
+    // sum = Math.abs(sum);
+    // console.log(sum);
+    // let differenceInDays = Math.round(sum / (1000 * 60 * 60 * 24));
+    // differenceInDays = differenceInDays -1;
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+        // let hors = Math.floor(sum / (1000 * 60 * 60));
+    
+        // let minutes = Math.floor((sum % (1000 *60 * 60)) / (1000 * 60));
+
+        // let seconds = Math.floor((sum % (1000 * 60)) / 1000);
+        // console.log(seconds);
+        // secondPrint.innerHTML = `${differenceInDays}  ${hors} : ${minutes} : ${seconds}`;
+
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     },1000)
 })
 
-// let date = new Date().getMilliseconds();
-// let date4 = new Date().getMilliseconds();
-
-// date4 = Math.floor(date / (1000 * 60 * 60))
-// function converTime(date) {
-//     let hours = Math.floor(date / (1000 * 60 * 60))
-//     // console.log(hours);
-//     return hours;
-// }
-// // console.log(converTime());
-// let converted = converTime(5000);
-// console.log(converted);
-
-// // console.log(hours);
-
- 
