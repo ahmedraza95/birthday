@@ -94,7 +94,7 @@ inputForm.addEventListener("submit", (event) => {
         let hors = Math.floor(sum / (1000 * 60 * 60));
         let minutes = Math.floor((sum % (1000 *60 * 60)) / (1000 * 60));
         let seconds = Math.floor((sum % (1000 * 60)) / 1000);
-        secondPrint.innerHTML = `Days = ${differenceInDays}</br> Hours = ${hors} </br> Minutes = ${minutes} </br> Seconds = ${seconds}s  Left`;
+        secondPrint.innerHTML = `Next birthday In Coming UP <br> Days = ${differenceInDays}</br> Hours = ${hors} </br> Minutes = ${minutes} </br> Seconds = ${seconds}s  Left`;
     }
 
     // let converter = new Date(finals).getTime();
